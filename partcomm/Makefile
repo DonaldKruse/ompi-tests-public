@@ -41,10 +41,10 @@ clean:
 	$(RM) $(BIN) *.o 
 
 
-test_allgather: common.h test_allgather.c
-	$(CC) $(CC_FLAGS) -DTEST_PAYLOAD_SIZE=$(TEST_PAYLOAD_SIZE) -o $@ -I. test_allgather.c
-	$(CC) $(CC_FLAGS) -DTEST_UNIFORM_COUNT=$(TEST_UNIFORM_COUNT) -o $@_uniform_count -I. test_allgather.c
+#test_allgather: common.h test_allgather.c
+	#$(CC) $(CC_FLAGS) -DTEST_PAYLOAD_SIZE=$(TEST_PAYLOAD_SIZE) -o $@ -I. test_allgather.c
+	#$(CC) $(CC_FLAGS) -DTEST_UNIFORM_COUNT=$(TEST_UNIFORM_COUNT) -o $@_uniform_count -I. test_allgather.c
 
-test_init: partcomm_common.h test_init.c
+test_init: test_init.c partscomm_common.h 
 	$(CC) $(CC_FLAGS) -DPARTITIONS=$(PARTITIONS) \
 	-DPARTSCOUNT=$(PARTSCOUNT) -o $@ -I. test_init.c
