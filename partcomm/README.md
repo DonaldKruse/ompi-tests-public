@@ -14,7 +14,18 @@
    - assumption
 
 ## Building
-
+### Mutrino (Intel)
+First load appropriate modules
+```
+module load PrgEnv-intel; module load craype-haswell
+```
+Then build OpenMPI 4.
+```
+./configure --prefix=/home/your_home/local
+make -j 16 all
+make -j 16 install
+```
+TODO env vars/compiler/so/
 ```
 make clean
 make all

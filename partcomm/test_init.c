@@ -1,4 +1,4 @@
-#include "mpi.h"
+#include "/home/dkruse/mutrino-local/include/mpi.h"
 #include "partscomm_common.h"
 
 
@@ -13,10 +13,10 @@ int main(int argc, char *argv[])
     int provided;
 
     
-    MPI_Init_thread(&argc, &argv, MPI_THREAD_SERIALIZED, &provided);
-    if (provided < MPI_THREAD_SERIALIZED)
-        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
-    MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
+        MPI_Init_thread(&argc, &argv, MPI_THREAD_SERIALIZED, &provided);
+        if (provided < MPI_THREAD_SERIALIZED)
+            MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
+        MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
 
     
         //if (myrank == 0)
@@ -50,6 +50,8 @@ int main(int argc, char *argv[])
         //    }
         //    MPI_Request_free(&request);
         //}
+    printf("rank[%d], before finalize\n", myrank);
     MPI_Finalize();
+    printf("after finalize\n");
     return 0;
 }
