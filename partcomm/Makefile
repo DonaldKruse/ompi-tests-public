@@ -22,8 +22,11 @@ F90_FLAGS=
 F77_FLAGS=$(F90_FLAGS)
 
 
-PARTITIONS=8
-PARTSCOUNT=5
+#PARTITIONS=8
+#PARTSCOUNT=5
+
+PARTITIONS=1
+PARTSCOUNT=1
 
 
 ######################################################################
