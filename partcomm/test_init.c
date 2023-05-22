@@ -1,4 +1,4 @@
-#include "/home/dkruse/mutrino-local/include/mpi.h"
+#include "/ascldap/users/dkruse/manzano-local/include/mpi.h"
 #include "partscomm_common.h"
 
 

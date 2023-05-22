@@ -7,10 +7,5 @@
 
 
 
-pwd
-which mpicc
-which mpirun
-which gcc
-sofile=/home/dkruse/mutrino-local/lib/libmpi.so
 
-mpirun -x LD_PRELOAD=$sofile -N 1 ./test_init
+/ascldap/users/dkruse/manzano-local/bin/mpirun -N 1 ./test_init

@@ -4,8 +4,12 @@
 .PHONY: default help
 
 #cc = /home/dkruse/mutrino-local/src/openmpi-4.1.2/bin/mpicc
-cc = /home/dkruse/mutrino-local/bin/mpicc
-MPIRUN=/home/dkruse/mutrino-local/bin/mpirun
+#cc = /home/dkruse/mutrino-local/bin/mpicc
+cc = /ascldap/users/dkruse/manzano-local/bin/mpicc
+
+#MPIRUN=/home/dkruse/mutrino-local/bin/mpirun
+MPIRUN = /ascldap/users/dkruse/manzano-local/bin/mpirun
+
 RM=/bin/rm -f
 
 # GCC
@@ -38,14 +42,18 @@ BIN	= $(BINCC)
 all: $(BIN)
 
 test:
-	mpicc --version
-	which mpicc
+	echo "fix this later..."
+	echo "--version:"
+	$(cc) --version
+	echo "which $(cc):"
+	which $(cc)
 
 clean:
-	$(RM) $(BIN) *.o 
+	$(RM) $(BIN) *.o *~
+	mv slurm-*.out trash/
 
 
 
 test_init: test_init.c partscomm_common.h 
-	mpicc $(CC_FLAGS) -DPARTITIONS=$(PARTITIONS) \
-	-DPARTSCOUNT=$(PARTSCOUNT) -o $@ -I. test_init.c
+	$(cc) $(CC_FLAGS) -DPARTITIONS=$(PARTITIONS) \
+	-DPARTSCOUNT=$(PARTSCOUNT) -o $@ -I. -L /ascldap/users/dkruse/skybridge-local/lib test_init.c
